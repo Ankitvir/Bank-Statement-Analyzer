@@ -12,29 +12,29 @@ function App() {
   useEffect(() => {
     const loadTransactions = async () => {
       const data = await fetchTransactions();
-      console.log("Fetched Transactions in App.js:", data); // Debugging log
+      console.log("Fetched Transactions in App.js:", data);
       setTransactions(data);
     };
     loadTransactions();
   }, []);
 
-  // ✅ Function to handle uploaded transactions
+
   const handleUploadedTransactions = (newData) => {
-    console.log("📂 Received Uploaded Data:", newData); // Debugging log
+    console.log(" Received Uploaded Data:", newData); 
 
     if (!Array.isArray(newData)) {
-        console.error("❌ Error: newData is not an array!", newData);
+        console.error(" Error: newData is not an array!", newData);
         return;
     }
 
-    // ✅ Filter out non-transaction objects
+  
     const validTransactions = newData.filter(tx => 
         tx.date && tx.description && (tx.credit !== undefined || tx.debit !== undefined) && tx.balance !== undefined
     );
 
-    console.log("✅ Filtered Transactions for Dashboard:", validTransactions); // Debugging log
+    console.log(" Filtered Transactions for Dashboard:", validTransactions); 
 
-    setTransactions((prev) => [...prev, ...validTransactions]); // Append only valid transactions
+    setTransactions((prev) => [...prev, ...validTransactions]); 
 };
 
   return (

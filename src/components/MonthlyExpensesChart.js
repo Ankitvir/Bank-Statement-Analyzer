@@ -1,16 +1,16 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
 function MonthlyExpensesChart({ transactions }) {
-  console.log("📊 Transactions in Bar Chart:", transactions); // Debugging log
+  console.log(" Transactions in Bar Chart:", transactions);
 
   if (!transactions || transactions.length === 0) {
-    return <p style={{ textAlign: "center", color: "red" }}>⚠ No data available</p>;
+    return <p style={{ textAlign: "center", color: "red" }}> No data available</p>;
   }
 
-  // ✅ Group expenses by month
+
   const expensesByMonth = transactions.reduce((acc, tx) => {
     if (!tx.date || !tx.debit) return acc;
-    const month = tx.date.substring(0, 7); // Extract YYYY-MM
+    const month = tx.date.substring(0, 7); 
     acc[month] = (acc[month] || 0) + tx.debit;
     return acc;
   }, {});
@@ -20,7 +20,7 @@ function MonthlyExpensesChart({ transactions }) {
     expenses: expensesByMonth[month],
   }));
 
-  console.log("✅ Bar Chart Data:", data); // Debugging log
+  console.log(" Bar Chart Data:", data);
 
   return (
     <div className="chart-container fade-in">

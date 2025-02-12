@@ -1,5 +1,5 @@
 function TransactionTable({ transactions }) {
-  console.log("📋 Transactions in Table:", transactions); // Debugging log
+  console.log(" Transactions in Table:", transactions);
 
   return (
     <div className="transaction-table-container">

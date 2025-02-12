@@ -1,7 +1,7 @@
 import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from "recharts";
 
 function CreditDebitChart({ transactions }) {
-  console.log("📊 Transactions in Pie Chart:", transactions); // Debugging log
+  console.log(" Transactions in Pie Chart:", transactions);
 
   if (!transactions || transactions.length === 0) {
     return <p style={{ textAlign: "center", color: "red" }}>⚠ No data available</p>;
@@ -15,7 +15,7 @@ function CreditDebitChart({ transactions }) {
     { name: "Debit", value: totalDebit },
   ];
 
-  console.log("✅ Pie Chart Data:", data); // Debugging log
+  console.log("Pie Chart Data:", data);
 
   const COLORS = ["#4CAF50", "#FF5733"];
 

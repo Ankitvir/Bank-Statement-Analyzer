@@ -2,7 +2,7 @@ import transactionsData from '../data/transactions.json';
 
 export const fetchTransactions = async () => {
     try {
-        // Simulate an API call by returning the static JSON data
+        
         return transactionsData;
     } catch (error) {
         console.error("Error fetching transactions:", error);
@@ -12,7 +12,7 @@ export const fetchTransactions = async () => {
 
 export const uploadFile = async (file) => {
     try {
-        // Simulating a successful upload response
+        
         const newUpload = [
             {
                 id: Date.now(),
@@ -23,7 +23,7 @@ export const uploadFile = async (file) => {
         ];
 
         console.log("Returning Upload Data:", newUpload);
-        return newUpload; // Ensure it returns an array
+        return newUpload; 
     } catch (error) {
         console.error("Error uploading file:", error);
         throw error;

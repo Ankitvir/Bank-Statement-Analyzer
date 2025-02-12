@@ -19,10 +19,9 @@ function FileUpload({ onUpload }) {
     const reader = new FileReader();
 
     if (file.name.endsWith(".csv")) {
-      // ✅ Process CSV file
       reader.onload = (event) => {
         const csvData = event.target.result;
-        const rows = csvData.split("\n").slice(1); // Remove header row
+        const rows = csvData.split("\n").slice(1); 
         const parsedData = rows.map(row => {
           const [date, description, credit, debit, balance] = row.split(",");
           return {
@@ -34,14 +33,14 @@ function FileUpload({ onUpload }) {
           };
         }).filter(tx => tx.date && tx.description && !isNaN(tx.balance));
 
-        console.log("✅ Parsed CSV Transactions:", parsedData);
+        console.log(" Parsed CSV Transactions:", parsedData);
         onUpload(parsedData);
         alert("CSV file uploaded successfully!");
-        navigate("/"); // Redirect to Dashboard
+        navigate("/");
       };
       reader.readAsText(file);
     } else if (file.name.endsWith(".xlsx")) {
-      // ✅ Process Excel file
+
       reader.onload = (event) => {
         const data = new Uint8Array(event.target.result);
         const workbook = XLSX.read(data, { type: "array" });
@@ -49,7 +48,7 @@ function FileUpload({ onUpload }) {
         const sheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json(sheet, { raw: true });
 
-        console.log("📊 Raw Excel Data:", jsonData);
+        console.log(" Raw Excel Data:", jsonData);
         const parsedData = jsonData.map(row => ({
           date: row.Date,
           description: row.Description,
@@ -58,10 +57,10 @@ function FileUpload({ onUpload }) {
           balance: row.Balance || 0
         })).filter(tx => tx.date && tx.description && !isNaN(tx.balance));
 
-        console.log("✅ Parsed Excel Transactions:", parsedData);
+        console.log(" Parsed Excel Transactions:", parsedData);
         onUpload(parsedData);
         alert("Excel file uploaded successfully!");
-        navigate("/"); // Redirect to Dashboard
+        navigate("/");
       };
       reader.readAsArrayBuffer(file);
     } else {

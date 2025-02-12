@@ -1,7 +1,7 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
 function Chart({ transactions }) {
-  console.log("📈 Transactions in Chart:", transactions); // Debugging log
+  console.log(" Transactions in Chart:", transactions); // Debugging log
 
   if (!transactions || transactions.length === 0) {
     return <p style={{ textAlign: "center", color: "red" }}>⚠ No data available for chart</p>;
