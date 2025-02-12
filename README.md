@@ -16,7 +16,7 @@ The **Bank Statement Analyzer** is a **React-based dashboard** that allows users
 
 ### 1️ **Clone the Repository**
 ```bash
-git clone https://github.com/your-repo/bank-statement-analyzer.git
+git clone https://github.com/Ankitvir/Bank-Statement-Analyzer.git
 cd bank-statement-analyzer
 ```
 
